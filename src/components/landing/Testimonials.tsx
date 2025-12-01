@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -29,7 +30,13 @@ export const Testimonials = () => {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Histórias de{" "}
             <span className="gradient-text">transformação</span>
@@ -37,11 +44,18 @@ export const Testimonials = () => {
           <p className="text-xl text-muted-foreground">
             Veja como o Luna Glow está ajudando mulheres a viverem melhor
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-8 space-y-4 hover:shadow-xl transition-shadow border-2 hover:border-primary/20">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <Card className="p-8 space-y-4 hover:shadow-xl transition-shadow border-2 hover:border-primary/20 h-full">
               <div className="flex gap-1">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-primary text-primary" />
@@ -57,11 +71,18 @@ export const Testimonials = () => {
                   {testimonial.highlight}
                 </div>
               </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
           <div className="inline-flex items-center gap-2 bg-secondary px-6 py-3 rounded-full">
             <div className="flex -space-x-2">
               {[1, 2, 3, 4].map((i) => (
@@ -72,7 +93,7 @@ export const Testimonials = () => {
               Junte-se a <span className="text-primary font-bold">500+ mulheres</span> que já transformaram seu bem-estar
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

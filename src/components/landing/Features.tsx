@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import trackingImage from "@/assets/feature-tracking.jpg";
 import aiImage from "@/assets/feature-ai.jpg";
 import journalImage from "@/assets/feature-journal.jpg";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -32,7 +33,13 @@ export const Features = () => {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ferramentas que transformam seu{" "}
             <span className="gradient-text">bem-estar</span>
@@ -40,16 +47,22 @@ export const Features = () => {
           <p className="text-xl text-muted-foreground">
             Tecnologia de ponta combinada com empatia e privacidade para apoiar cada dimensão da sua saúde
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card 
+              <motion.div
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/20 bg-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
               >
+                <Card 
+                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/20 bg-card h-full"
+                >
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src={feature.image} 
@@ -72,7 +85,8 @@ export const Features = () => {
                     ))}
                   </ul>
                 </div>
-              </Card>
+                </Card>
+              </motion.div>
             );
           })}
         </div>
