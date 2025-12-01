@@ -5,7 +5,7 @@ import { Testimonials } from "@/components/landing/Testimonials";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 
-const Index = () => {
+const Landing = () => {
   return (
     <div className="min-h-screen">
       <Hero />
@@ -18,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Landing;
