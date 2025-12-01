@@ -1,6 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
@@ -60,6 +69,10 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -79,45 +92,67 @@ export const Testimonials = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-            >
-              <Card className="p-8 space-y-4 hover:shadow-xl transition-shadow border-2 hover:border-primary/20 h-full flex flex-col">
-                <div className="flex items-start gap-4">
-                  <img 
-                    src={testimonial.photo} 
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
-                  />
-                  <div className="flex-1">
-                    <div className="font-semibold text-lg">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.age} anos</div>
-                  </div>
-                </div>
+        <motion.div
+          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[plugin.current]}
+            className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-8 space-y-4 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 h-full flex flex-col group">
+                    <div className="flex items-start gap-4">
+                      <div className="relative">
+                        <img 
+                          src={testimonial.photo} 
+                          alt={testimonial.name}
+                          className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 transition-transform group-hover:scale-110"
+                        />
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center border-2 border-background">
+                          <Star className="w-3 h-3 fill-white text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-semibold text-lg">{testimonial.name}</div>
+                        <div className="text-sm text-muted-foreground">{testimonial.age} anos</div>
+                      </div>
+                    </div>
 
-                <div className="flex gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                
-                <p className="text-foreground/90 leading-relaxed flex-1">"{testimonial.text}"</p>
-                
-                <div className="pt-4 border-t border-border">
-                  <div className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
-                    {testimonial.highlight}
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-foreground/90 leading-relaxed flex-1 text-sm">
+                      "{testimonial.text}"
+                    </p>
+                    
+                    <div className="pt-4 border-t border-border">
+                      <div className="inline-block bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-xs font-medium px-3 py-1.5 rounded-full">
+                        ✨ {testimonial.highlight}
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12" />
+            <CarouselNext className="hidden md:flex -right-12" />
+          </Carousel>
+        </motion.div>
 
         <motion.div 
           className="text-center mt-12"
