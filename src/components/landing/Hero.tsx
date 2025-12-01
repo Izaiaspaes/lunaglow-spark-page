@@ -70,7 +70,7 @@ export const Hero = () => {
             >
               <Badge className="bg-secondary text-primary border-0 px-4 py-2 text-sm font-medium">
                 <Sparkles className="w-4 h-4 mr-2" />
-                Oferta Especial - 70% OFF no Plano Anual
+                Oferta Especial - Economize no Pacote Anual
               </Badge>
             </motion.div>
 
@@ -108,7 +108,7 @@ export const Hero = () => {
                 size="xl" 
                 variant="ctaOutline"
               >
-                Ver Planos Premium
+                Ver Pacotes Premium
               </Button>
             </motion.div>
 
