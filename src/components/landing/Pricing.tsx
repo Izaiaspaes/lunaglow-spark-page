@@ -136,7 +136,7 @@ export const Pricing = () => {
                 size="lg" 
                 variant={plan.variant}
                 className="w-full"
-                onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
               >
                 {plan.cta}
               </Button>

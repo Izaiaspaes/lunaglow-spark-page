@@ -28,7 +28,7 @@ export const FinalCTA = () => {
               size="xl" 
               variant="cta"
               className="group"
-              onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+              onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
             >
               Começar Grátis Agora
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -36,7 +36,7 @@ export const FinalCTA = () => {
             <Button 
               size="xl" 
               variant="ctaOutline"
-              onClick={() => window.location.href = 'https://lunaglow.com.br/features'}
+              onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
             >
               Ver Todos os Recursos
             </Button>

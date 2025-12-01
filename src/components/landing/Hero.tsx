@@ -99,7 +99,7 @@ export const Hero = () => {
                 size="xl" 
                 variant="cta" 
                 className="group"
-                onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
               >
                 Comece Grátis Agora
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -128,7 +128,7 @@ export const PackageComparison = () => {
               <div className="flex items-center justify-center border-x border-border">
                 <Button 
                   variant="outline"
-                  onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                  onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
                 >
                   Assinar Mensal
                 </Button>
@@ -136,7 +136,7 @@ export const PackageComparison = () => {
               <div className="flex items-center justify-center">
                 <Button 
                   variant="cta"
-                  onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                  onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
                 >
                   <Crown className="w-4 h-4 mr-2" />
                   Assinar Anual
