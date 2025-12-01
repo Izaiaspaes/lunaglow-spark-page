@@ -11,7 +11,7 @@ import { TrustSection } from "@/components/landing/es/TrustSection";
 import { FAQ } from "@/components/landing/es/FAQ";
 import { FinalCTA } from "@/components/landing/es/FinalCTA";
 import { ExitIntentPopup } from "@/components/landing/ExitIntentPopup";
-import { FloatingChat } from "@/components/FloatingChat";
+import { FloatingChatES } from "@/components/FloatingChat/es";
 
 const LandingES = () => {
   return (
@@ -29,7 +29,7 @@ const LandingES = () => {
       <FAQ />
       <FinalCTA />
       <ExitIntentPopup />
-      <FloatingChat />
+      <FloatingChatES />
     </div>
   );
 };
