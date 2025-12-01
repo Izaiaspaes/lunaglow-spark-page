@@ -12,6 +12,33 @@ interface Message {
   content: string;
 }
 
+const QUICK_REPLIES = [
+  {
+    category: "Recursos",
+    questions: [
+      "Como funciona o rastreamento do ciclo?",
+      "O que é a Luna Sense IA?",
+      "Quais são os recursos premium?",
+    ]
+  },
+  {
+    category: "Pacotes",
+    questions: [
+      "Qual a diferença entre Premium e Premium Plus?",
+      "Quanto custa cada pacote?",
+      "Posso cancelar a qualquer momento?",
+    ]
+  },
+  {
+    category: "Saúde",
+    questions: [
+      "Como aliviar cólicas menstruais?",
+      "Dicas para TPM?",
+      "Como melhorar meu ciclo?",
+    ]
+  }
+];
+
 export const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -22,6 +49,7 @@ export const FloatingChat = () => {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showQuickReplies, setShowQuickReplies] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -33,6 +61,7 @@ export const FloatingChat = () => {
 
   const streamChat = async (userMessage: string) => {
     setIsLoading(true);
+    setShowQuickReplies(false);
     
     const newMessages = [...messages, { role: "user" as const, content: userMessage }];
     setMessages(newMessages);
@@ -140,7 +169,13 @@ export const FloatingChat = () => {
       setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
+      // Show quick replies again after assistant responds
+      setTimeout(() => setShowQuickReplies(true), 1000);
     }
+  };
+
+  const handleQuickReply = (question: string) => {
+    streamChat(question);
   };
 
   const handleSend = async () => {
@@ -249,6 +284,39 @@ export const FloatingChat = () => {
                       <div className="bg-muted rounded-2xl px-4 py-2">
                         <Loader2 className="w-5 h-5 animate-spin text-primary" />
                       </div>
+                    </motion.div>
+                  )}
+                  
+                  {/* Quick Replies */}
+                  {showQuickReplies && !isLoading && messages.length <= 3 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-3 pt-2"
+                    >
+                      <div className="text-xs text-muted-foreground text-center font-medium">
+                        Perguntas frequentes:
+                      </div>
+                      {QUICK_REPLIES.map((category, idx) => (
+                        <div key={idx} className="space-y-2">
+                          <div className="text-xs font-semibold text-primary">
+                            {category.category}
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {category.questions.map((question, qIdx) => (
+                              <Button
+                                key={qIdx}
+                                variant="outline"
+                                size="sm"
+                                onClick={() => handleQuickReply(question)}
+                                className="text-xs h-auto py-2 px-3 hover:bg-primary/10 hover:border-primary/30 transition-all"
+                              >
+                                {question}
+                              </Button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </motion.div>
                   )}
                 </div>
