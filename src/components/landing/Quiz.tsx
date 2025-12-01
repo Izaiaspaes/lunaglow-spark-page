@@ -86,7 +86,7 @@ export const Quiz = () => {
                   size="xl" 
                   variant="default"
                   className="w-full bg-white text-primary hover:bg-white/90"
-                  onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                  onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
                 >
                   Começar Grátis Agora
                   <ArrowRight className="ml-2" />

@@ -143,7 +143,7 @@ export const CountdownTimer = () => {
                 size="xl" 
                 variant="cta"
                 className="w-full md:w-auto text-lg px-12"
-                onClick={() => window.location.href = 'https://lunaglow.com.br/auth'}
+                onClick={() => window.location.href = 'https://lunaglow.com.br/pricing'}
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 Garantir Oferta Especial Agora
