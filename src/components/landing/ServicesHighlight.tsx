@@ -10,6 +10,7 @@ import {
   Calendar,
   LineChart
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -74,7 +75,13 @@ export const ServicesHighlight = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-background to-luna-pink-light/20">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <Badge className="bg-primary/10 text-primary border-0 mb-4">
             <Sparkles className="w-4 h-4 mr-2" />
             Funcionalidades Premium
@@ -86,16 +93,22 @@ export const ServicesHighlight = () => {
           <p className="text-xl text-muted-foreground">
             Uma plataforma completa de bem-estar feminino com tecnologia de ponta
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card 
+              <motion.div
                 key={index}
-                className="group p-6 space-y-4 hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:scale-105 relative overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
               >
+                <Card 
+                  className="group p-6 space-y-4 hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:scale-105 relative overflow-hidden h-full"
+                >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
                 <div className="relative z-10 space-y-4">
@@ -113,16 +126,23 @@ export const ServicesHighlight = () => {
                     <p className="text-sm text-muted-foreground">{service.description}</p>
                   </div>
                 </div>
-              </Card>
+                </Card>
+              </motion.div>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
           <p className="text-lg text-muted-foreground">
             <span className="font-bold text-primary">Todos esses recursos</span> estão disponíveis nos planos Premium
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
