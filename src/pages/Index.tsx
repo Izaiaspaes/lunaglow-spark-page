@@ -4,8 +4,10 @@ import { ServicesHighlight } from "@/components/landing/ServicesHighlight";
 import { PlanCalculator } from "@/components/landing/PlanCalculator";
 import { Pricing } from "@/components/landing/Pricing";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { TrustSection } from "@/components/landing/TrustSection";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
+import { ExitIntentPopup } from "@/components/landing/ExitIntentPopup";
 
 const Index = () => {
   return (
@@ -16,8 +18,10 @@ const Index = () => {
       <PlanCalculator />
       <Testimonials />
       <Pricing />
+      <TrustSection />
       <FAQ />
       <FinalCTA />
+      <ExitIntentPopup />
     </div>
   );
 };
