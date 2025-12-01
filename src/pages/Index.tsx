@@ -11,6 +11,7 @@ import { TrustSection } from "@/components/landing/TrustSection";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { ExitIntentPopup } from "@/components/landing/ExitIntentPopup";
+import { FloatingChat } from "@/components/FloatingChat";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <FAQ />
       <FinalCTA />
       <ExitIntentPopup />
+      <FloatingChat />
     </div>
   );
 };
