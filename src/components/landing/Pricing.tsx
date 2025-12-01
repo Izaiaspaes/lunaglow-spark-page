@@ -22,11 +22,11 @@ const plans = [
   },
   {
     name: "Premium Mensal",
-    price: "R$ 29,90",
+    price: "R$ 19,90",
     period: "/mês",
     description: "Todas as funcionalidades desbloqueadas",
     features: [
-      "Tudo do plano Gratuito",
+      "Tudo do pacote Gratuito",
       "Luna Sense 24/7 ilimitado",
       "Diário com análise IA completa",
       "SOS Feminino prioritário",
@@ -39,10 +39,10 @@ const plans = [
   },
   {
     name: "Premium Plus Anual",
-    price: "R$ 179,90",
+    price: "R$ 299,00",
     originalPrice: "R$ 358,80",
     period: "/ano",
-    badge: "70% OFF",
+    badge: "Melhor Valor",
     description: "Transformação completa garantida",
     features: [
       "Tudo do Premium Mensal",
@@ -53,7 +53,7 @@ const plans = [
       "Suporte prioritário 24/7",
       "Acesso vitalício a novos recursos",
     ],
-    cta: "Garantir 70% OFF Agora",
+    cta: "Garantir Melhor Valor",
     variant: "cta" as const,
     popular: false,
     highlight: true
@@ -76,7 +76,7 @@ export const Pricing = () => {
             Oferta Limitada
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Escolha o plano perfeito para você
+            Escolha o pacote de assinatura perfeito para você
           </h2>
           <p className="text-xl text-muted-foreground">
             Comece grátis e faça upgrade quando estiver pronta para transformar seu bem-estar
@@ -163,7 +163,7 @@ export const Pricing = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          Todos os planos incluem 7 dias de garantia de satisfação • Cancele quando quiser
+          Todos os pacotes incluem 7 dias de garantia de satisfação • Cancele quando quiser
         </motion.div>
       </div>
     </section>

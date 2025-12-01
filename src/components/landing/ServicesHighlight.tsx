@@ -140,7 +140,7 @@ export const ServicesHighlight = () => {
           transition={{ delay: 0.6 }}
         >
           <p className="text-lg text-muted-foreground">
-            <span className="font-bold text-primary">Todos esses recursos</span> estão disponíveis nos planos Premium
+            <span className="font-bold text-primary">Todos esses recursos</span> estão disponíveis nos pacotes Premium
           </p>
         </motion.div>
       </div>
