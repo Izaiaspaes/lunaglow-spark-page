@@ -1,11 +1,18 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
+import testimonial5 from "@/assets/testimonial-5.jpg";
+import testimonial6 from "@/assets/testimonial-6.jpg";
 
 const testimonials = [
   {
     name: "Mariana S.",
     age: 28,
+    photo: testimonial1,
     text: "O Luna Glow mudou minha vida! Finalmente entendo meu corpo e consigo me planejar. A assistente IA é como ter uma amiga que sempre entende.",
     rating: 5,
     highlight: "Perdi 5kg seguindo os planos personalizados"
@@ -13,6 +20,7 @@ const testimonials = [
   {
     name: "Julia R.",
     age: 32,
+    photo: testimonial2,
     text: "Depois de anos sofrendo com TPM, o Luna me ajudou a identificar padrões e antecipar sintomas. Agora sei exatamente o que fazer em cada fase.",
     rating: 5,
     highlight: "TPM 80% mais leve"
@@ -20,9 +28,34 @@ const testimonials = [
   {
     name: "Carolina P.",
     age: 25,
+    photo: testimonial3,
     text: "O diário com IA é incrível! Ele conecta pontos que eu nunca havia percebido entre meu ciclo e minhas emoções. Me sinto muito mais no controle.",
     rating: 5,
     highlight: "100% mais autoconhecimento"
+  },
+  {
+    name: "Beatriz M.",
+    age: 35,
+    photo: testimonial4,
+    text: "A Luna Sense me acompanha em momentos difíceis. É reconfortante ter alguém disponível 24/7 que realmente entende as mudanças hormonais. Não me sinto mais sozinha.",
+    rating: 5,
+    highlight: "Ansiedade reduzida em 60%"
+  },
+  {
+    name: "Rafaela T.",
+    age: 29,
+    photo: testimonial5,
+    text: "O closet virtual mudou minha relação com a moda! Agora escolho roupas que me fazem sentir bem em cada fase. Minha autoestima melhorou demais!",
+    rating: 5,
+    highlight: "Confiança aumentada em 90%"
+  },
+  {
+    name: "Amanda L.",
+    age: 31,
+    photo: testimonial6,
+    text: "As análises de beleza personalizadas salvaram minha pele! Adaptar minha rotina de skincare ao ciclo fez toda diferença. Nunca tive uma pele tão bonita.",
+    rating: 5,
+    highlight: "Pele 100% mais saudável"
   }
 ];
 
@@ -46,31 +79,41 @@ export const Testimonials = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              <Card className="p-8 space-y-4 hover:shadow-xl transition-shadow border-2 hover:border-primary/20 h-full">
-              <div className="flex gap-1">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                ))}
-              </div>
-              
-              <p className="text-foreground/90 leading-relaxed">"{testimonial.text}"</p>
-              
-              <div className="pt-4 border-t border-border space-y-2">
-                <div className="font-semibold">{testimonial.name}</div>
-                <div className="text-sm text-muted-foreground">{testimonial.age} anos</div>
-                <div className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
-                  {testimonial.highlight}
+              <Card className="p-8 space-y-4 hover:shadow-xl transition-shadow border-2 hover:border-primary/20 h-full flex flex-col">
+                <div className="flex items-start gap-4">
+                  <img 
+                    src={testimonial.photo} 
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
+                  />
+                  <div className="flex-1">
+                    <div className="font-semibold text-lg">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.age} anos</div>
+                  </div>
                 </div>
-              </div>
+
+                <div className="flex gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                
+                <p className="text-foreground/90 leading-relaxed flex-1">"{testimonial.text}"</p>
+                
+                <div className="pt-4 border-t border-border">
+                  <div className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                    {testimonial.highlight}
+                  </div>
+                </div>
               </Card>
             </motion.div>
           ))}
