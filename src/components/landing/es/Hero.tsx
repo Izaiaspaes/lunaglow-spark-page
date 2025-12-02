@@ -47,7 +47,7 @@ export const Hero = () => {
           <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/20">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/CEI4r-cMVjE"
+              src="https://www.youtube.com/embed/CEI4r-cMVjE?autoplay=1&mute=1"
               title="Luna Glow - Presentación"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
