@@ -1,42 +1,58 @@
-import { Hero } from "@/components/landing/Hero";
-import { Quiz } from "@/components/landing/Quiz";
-import { CountdownTimer } from "@/components/landing/CountdownTimer";
-import { Features } from "@/components/landing/Features";
-import { ServicesHighlight } from "@/components/landing/ServicesHighlight";
-import { Pricing } from "@/components/landing/Pricing";
-import { SavingsCalculator } from "@/components/landing/SavingsCalculator";
-import { PackageComparison } from "@/components/landing/PackageComparison";
-import { CompetitorComparison } from "@/components/landing/CompetitorComparison";
-import { Testimonials } from "@/components/landing/Testimonials";
-import { TrustSection } from "@/components/landing/TrustSection";
-import { FAQ } from "@/components/landing/FAQ";
-import { FinalCTA } from "@/components/landing/FinalCTA";
-import { ExitIntentPopup } from "@/components/landing/ExitIntentPopup";
-import { FloatingChat } from "@/components/FloatingChat";
-import { SocialProof } from "@/components/landing/SocialProof";
-import { StickyCTA } from "@/components/landing/StickyCTA";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { AnnouncementBanner } from "@/components/AnnouncementBanner";
+import { Hero } from "@/components/Hero";
+import { Features } from "@/components/Features";
+import { FeaturedHighlights } from "@/components/FeaturedHighlights";
+import { PricingComparison } from "@/components/PricingComparison";
+import { PlanCalculator } from "@/components/PlanCalculator";
+import { Statistics } from "@/components/Statistics";
+import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
+import { Privacy } from "@/components/Privacy";
+import { CTA } from "@/components/CTA";
+import { Footer } from "@/components/Footer";
+import { Layout } from "@/components/Layout";
 
 const Index = () => {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect authenticated users to dashboard
+    if (!loading && user) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [user, loading, navigate]);
+
+  // Show loading while checking auth
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+      </Layout>
+    );
+  }
+
   return (
-    <div className="min-h-screen">
-      <Hero />
-      <Quiz />
-      <CountdownTimer />
-      <Features />
-      <ServicesHighlight />
-      <Pricing />
-      <SavingsCalculator />
-      <PackageComparison />
-      <CompetitorComparison />
+    <Layout>
+      <div className="min-h-screen">
+        <AnnouncementBanner />
+        <Hero />
+        <Statistics />
+        <FeaturedHighlights />
+      <PricingComparison />
+      <PlanCalculator />
       <Testimonials />
-      <TrustSection />
       <FAQ />
-      <FinalCTA />
-      <ExitIntentPopup />
-      <FloatingChat />
-      <SocialProof />
-      <StickyCTA />
-    </div>
+        <Privacy />
+        <CTA />
+        <Footer />
+      </div>
+    </Layout>
   );
 };
 
