@@ -59,9 +59,10 @@ export function BeautyAnalysis() {
       if (uploadError) throw uploadError;
 
       // Get public URL
-      const { data: { publicUrl } } = supabase.storage
+      const { data: signed } = await supabase.storage
         .from('beauty-analysis')
-        .getPublicUrl(fileName);
+        .createSignedUrl(fileName, 60 * 60 * 24 * 365);
+      const publicUrl = signed?.signedUrl ?? '';
 
       setSelectedImage(publicUrl);
 

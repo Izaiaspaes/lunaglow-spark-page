@@ -141,9 +141,10 @@ export function ProfileSettings({ open, onOpenChange }: ProfileSettingsProps) {
       if (uploadError) throw uploadError;
 
       // Get public URL
-      const { data: { publicUrl } } = supabase.storage
+      const { data: signed } = await supabase.storage
         .from('avatars')
-        .getPublicUrl(fileName);
+        .createSignedUrl(fileName, 60 * 60 * 24 * 365);
+      const publicUrl = signed?.signedUrl ?? '';
 
       setAvatarPreview(publicUrl);
 
