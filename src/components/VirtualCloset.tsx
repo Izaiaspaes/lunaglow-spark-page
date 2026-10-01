@@ -108,9 +108,10 @@ export default function VirtualCloset() {
 
       if (uploadError) throw uploadError;
 
-      const { data: { publicUrl } } = supabase.storage
+      const { data: signed } = await supabase.storage
         .from('closet-items')
-        .getPublicUrl(fileName);
+        .createSignedUrl(fileName, 60 * 60 * 24 * 365);
+      const publicUrl = signed?.signedUrl ?? '';
 
       const { data: functionData, error: functionError } = await supabase.functions.invoke(
         'analyze-clothing-item',

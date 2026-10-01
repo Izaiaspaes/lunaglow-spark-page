@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790827575589,
+      "tag": "0000_luna_app_schema",
+      "breakpoints": true
+    }
+  ]
+}
