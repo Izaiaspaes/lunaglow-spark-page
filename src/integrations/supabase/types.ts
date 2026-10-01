@@ -14,16 +14,1200 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_notifications: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          metadata: Json | null
+          read: boolean
+          related_user_id: string | null
+          severity: string
+          title: string
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          metadata?: Json | null
+          read?: boolean
+          related_user_id?: string | null
+          severity?: string
+          title: string
+          type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          metadata?: Json | null
+          read?: boolean
+          related_user_id?: string | null
+          severity?: string
+          title?: string
+          type?: string
+        }
+        Relationships: []
+      }
+      announcement_banners: {
+        Row: {
+          banner_type: string
+          created_at: string
+          created_by: string | null
+          display_order: number
+          end_date: string | null
+          id: string
+          is_active: boolean
+          link_text: string | null
+          link_url: string | null
+          message: string
+          start_date: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          banner_type?: string
+          created_at?: string
+          created_by?: string | null
+          display_order?: number
+          end_date?: string | null
+          id?: string
+          is_active?: boolean
+          link_text?: string | null
+          link_url?: string | null
+          message: string
+          start_date?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          banner_type?: string
+          created_at?: string
+          created_by?: string | null
+          display_order?: number
+          end_date?: string | null
+          id?: string
+          is_active?: boolean
+          link_text?: string | null
+          link_url?: string | null
+          message?: string
+          start_date?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      beauty_analyses: {
+        Row: {
+          ai_analysis: Json
+          analysis_type: string
+          created_at: string
+          face_shape: string | null
+          id: string
+          photo_url: string
+          recommendations: Json | null
+          skin_tone_detected: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_analysis: Json
+          analysis_type: string
+          created_at?: string
+          face_shape?: string | null
+          id?: string
+          photo_url: string
+          recommendations?: Json | null
+          skin_tone_detected?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_analysis?: Json
+          analysis_type?: string
+          created_at?: string
+          face_shape?: string | null
+          id?: string
+          photo_url?: string
+          recommendations?: Json | null
+          skin_tone_detected?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      closet_items: {
+        Row: {
+          ai_description: string | null
+          ai_tags: string[] | null
+          category: string | null
+          colors: string[] | null
+          created_at: string | null
+          id: string
+          item_type: string
+          occasion: string[] | null
+          photo_url: string
+          season: string[] | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          ai_description?: string | null
+          ai_tags?: string[] | null
+          category?: string | null
+          colors?: string[] | null
+          created_at?: string | null
+          id?: string
+          item_type: string
+          occasion?: string[] | null
+          photo_url: string
+          season?: string[] | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          ai_description?: string | null
+          ai_tags?: string[] | null
+          category?: string | null
+          colors?: string[] | null
+          created_at?: string | null
+          id?: string
+          item_type?: string
+          occasion?: string[] | null
+          photo_url?: string
+          season?: string[] | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      cycle_tracking: {
+        Row: {
+          created_at: string
+          cycle_end_date: string | null
+          cycle_length: number | null
+          cycle_start_date: string
+          flow_intensity: string | null
+          id: string
+          notes: string | null
+          period_length: number | null
+          symptoms: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          cycle_end_date?: string | null
+          cycle_length?: number | null
+          cycle_start_date: string
+          flow_intensity?: string | null
+          id?: string
+          notes?: string | null
+          period_length?: number | null
+          symptoms?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          cycle_end_date?: string | null
+          cycle_length?: number | null
+          cycle_start_date?: string
+          flow_intensity?: string | null
+          id?: string
+          notes?: string | null
+          period_length?: number | null
+          symptoms?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      discount_coupons: {
+        Row: {
+          applies_to: string[] | null
+          code: string
+          created_at: string
+          created_by: string | null
+          current_uses: number
+          description: string | null
+          discount_type: string
+          discount_value: number
+          id: string
+          is_active: boolean
+          max_uses: number
+          updated_at: string
+          valid_from: string
+          valid_until: string
+        }
+        Insert: {
+          applies_to?: string[] | null
+          code: string
+          created_at?: string
+          created_by?: string | null
+          current_uses?: number
+          description?: string | null
+          discount_type: string
+          discount_value: number
+          id?: string
+          is_active?: boolean
+          max_uses?: number
+          updated_at?: string
+          valid_from?: string
+          valid_until: string
+        }
+        Update: {
+          applies_to?: string[] | null
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          current_uses?: number
+          description?: string | null
+          discount_type?: string
+          discount_value?: number
+          id?: string
+          is_active?: boolean
+          max_uses?: number
+          updated_at?: string
+          valid_from?: string
+          valid_until?: string
+        }
+        Relationships: []
+      }
+      energy_tracking: {
+        Row: {
+          created_at: string
+          energy_date: string
+          energy_level: number | null
+          id: string
+          notes: string | null
+          time_of_day: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          energy_date: string
+          energy_level?: number | null
+          id?: string
+          notes?: string | null
+          time_of_day?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          energy_date?: string
+          energy_level?: number | null
+          id?: string
+          notes?: string | null
+          time_of_day?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      invites: {
+        Row: {
+          code: string
+          created_at: string
+          created_by: string
+          current_uses: number
+          email: string | null
+          expires_at: string
+          id: string
+          is_active: boolean
+          max_uses: number
+          used_at: string | null
+          used_by: string | null
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          created_by: string
+          current_uses?: number
+          email?: string | null
+          expires_at: string
+          id?: string
+          is_active?: boolean
+          max_uses?: number
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          created_by?: string
+          current_uses?: number
+          email?: string | null
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          max_uses?: number
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Relationships: []
+      }
+      journal_entries: {
+        Row: {
+          ai_correlations: string | null
+          ai_patterns: string | null
+          ai_suggestions: Json | null
+          ai_summary: string | null
+          created_at: string
+          entry_text: string
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_correlations?: string | null
+          ai_patterns?: string | null
+          ai_suggestions?: Json | null
+          ai_summary?: string | null
+          created_at?: string
+          entry_text: string
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_correlations?: string | null
+          ai_patterns?: string | null
+          ai_suggestions?: Json | null
+          ai_summary?: string | null
+          created_at?: string
+          entry_text?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      mood_tracking: {
+        Row: {
+          created_at: string
+          id: string
+          mood_date: string
+          mood_level: number | null
+          mood_type: string | null
+          notes: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          mood_date: string
+          mood_level?: number | null
+          mood_type?: string | null
+          notes?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          mood_date?: string
+          mood_level?: number | null
+          mood_type?: string | null
+          notes?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          email: string
+          id: string
+          is_active: boolean
+          metadata: Json | null
+          source: string | null
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          is_active?: boolean
+          metadata?: Json | null
+          source?: string | null
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          is_active?: boolean
+          metadata?: Json | null
+          source?: string | null
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
+      nutrition_tracking: {
+        Row: {
+          created_at: string
+          foods_consumed: string | null
+          id: string
+          meal_type: string | null
+          notes: string | null
+          nutrition_date: string
+          nutrition_quality: number | null
+          portion_size: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          foods_consumed?: string | null
+          id?: string
+          meal_type?: string | null
+          notes?: string | null
+          nutrition_date: string
+          nutrition_quality?: number | null
+          portion_size?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          foods_consumed?: string | null
+          id?: string
+          meal_type?: string | null
+          notes?: string | null
+          nutrition_date?: string
+          nutrition_quality?: number | null
+          portion_size?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      outfit_suggestions: {
+        Row: {
+          ai_description: string | null
+          ai_styling_tips: string | null
+          created_at: string | null
+          id: string
+          item_ids: string[] | null
+          occasion: string | null
+          outfit_name: string | null
+          season: string | null
+          user_id: string
+        }
+        Insert: {
+          ai_description?: string | null
+          ai_styling_tips?: string | null
+          created_at?: string | null
+          id?: string
+          item_ids?: string[] | null
+          occasion?: string | null
+          outfit_name?: string | null
+          season?: string | null
+          user_id: string
+        }
+        Update: {
+          ai_description?: string | null
+          ai_styling_tips?: string | null
+          created_at?: string | null
+          id?: string
+          item_ids?: string[] | null
+          occasion?: string | null
+          outfit_name?: string | null
+          season?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      partner_notifications: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          notification_type: string
+          phase: string | null
+          read: boolean
+          relationship_id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          notification_type: string
+          phase?: string | null
+          read?: boolean
+          relationship_id: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          notification_type?: string
+          phase?: string | null
+          read?: boolean
+          relationship_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "partner_notifications_relationship_id_fkey"
+            columns: ["relationship_id"]
+            isOneToOne: false
+            referencedRelation: "partner_relationships"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      partner_relationships: {
+        Row: {
+          accepted_at: string | null
+          created_at: string
+          id: string
+          invite_token: string
+          invited_at: string
+          owner_user_id: string
+          partner_email: string
+          partner_user_id: string | null
+          sharing_settings: Json
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          created_at?: string
+          id?: string
+          invite_token: string
+          invited_at?: string
+          owner_user_id: string
+          partner_email: string
+          partner_user_id?: string | null
+          sharing_settings?: Json
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          created_at?: string
+          id?: string
+          invite_token?: string
+          invited_at?: string
+          owner_user_id?: string
+          partner_email?: string
+          partner_user_id?: string | null
+          sharing_settings?: Json
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      price_settings: {
+        Row: {
+          billing_period: string
+          created_at: string
+          created_by: string | null
+          currency: string
+          id: string
+          is_active: boolean
+          is_promotion: boolean
+          plan_type: string
+          price: number
+          promotion_end_date: string | null
+          promotion_start_date: string | null
+          stripe_price_id: string
+          updated_at: string
+        }
+        Insert: {
+          billing_period: string
+          created_at?: string
+          created_by?: string | null
+          currency: string
+          id?: string
+          is_active?: boolean
+          is_promotion?: boolean
+          plan_type: string
+          price: number
+          promotion_end_date?: string | null
+          promotion_start_date?: string | null
+          stripe_price_id: string
+          updated_at?: string
+        }
+        Update: {
+          billing_period?: string
+          created_at?: string
+          created_by?: string | null
+          currency?: string
+          id?: string
+          is_active?: boolean
+          is_promotion?: boolean
+          plan_type?: string
+          price?: number
+          promotion_end_date?: string | null
+          promotion_start_date?: string | null
+          stripe_price_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          encryption_enabled: boolean | null
+          full_name: string | null
+          id: string
+          notification_preferences: Json | null
+          phone: string | null
+          privacy_mode: boolean | null
+          subscription_plan: string | null
+          theme: string | null
+          tour_completed: boolean | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          encryption_enabled?: boolean | null
+          full_name?: string | null
+          id?: string
+          notification_preferences?: Json | null
+          phone?: string | null
+          privacy_mode?: boolean | null
+          subscription_plan?: string | null
+          theme?: string | null
+          tour_completed?: boolean | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          encryption_enabled?: boolean | null
+          full_name?: string | null
+          id?: string
+          notification_preferences?: Json | null
+          phone?: string | null
+          privacy_mode?: boolean | null
+          subscription_plan?: string | null
+          theme?: string | null
+          tour_completed?: boolean | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      push_subscriptions: {
+        Row: {
+          created_at: string | null
+          id: string
+          subscription_data: Json
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          subscription_data: Json
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          subscription_data?: Json
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      reminders: {
+        Row: {
+          created_at: string
+          days_of_week: number[]
+          id: string
+          is_active: boolean
+          message: string | null
+          reminder_time: string
+          tracking_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          days_of_week?: number[]
+          id?: string
+          is_active?: boolean
+          message?: string | null
+          reminder_time: string
+          tracking_type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          days_of_week?: number[]
+          id?: string
+          is_active?: boolean
+          message?: string | null
+          reminder_time?: string
+          tracking_type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      sleep_tracking: {
+        Row: {
+          bedtime: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          sleep_date: string
+          sleep_duration_hours: number | null
+          sleep_quality: number | null
+          updated_at: string
+          user_id: string
+          wake_time: string | null
+        }
+        Insert: {
+          bedtime?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          sleep_date: string
+          sleep_duration_hours?: number | null
+          sleep_quality?: number | null
+          updated_at?: string
+          user_id: string
+          wake_time?: string | null
+        }
+        Update: {
+          bedtime?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          sleep_date?: string
+          sleep_duration_hours?: number | null
+          sleep_quality?: number | null
+          updated_at?: string
+          user_id?: string
+          wake_time?: string | null
+        }
+        Relationships: []
+      }
+      symptom_predictions: {
+        Row: {
+          confidence_score: number
+          created_at: string
+          id: string
+          predicted_phase: string
+          predicted_symptoms: Json
+          prediction_date: string
+          recommendations: Json
+          user_id: string
+        }
+        Insert: {
+          confidence_score: number
+          created_at?: string
+          id?: string
+          predicted_phase: string
+          predicted_symptoms?: Json
+          prediction_date: string
+          recommendations?: Json
+          user_id: string
+        }
+        Update: {
+          confidence_score?: number
+          created_at?: string
+          id?: string
+          predicted_phase?: string
+          predicted_symptoms?: Json
+          prediction_date?: string
+          recommendations?: Json
+          user_id?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          display_order: number
+          id: string
+          is_featured: boolean
+          testimonial_text: string
+          updated_at: string
+          user_age: number | null
+          user_avatar_url: string | null
+          user_name: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          display_order?: number
+          id?: string
+          is_featured?: boolean
+          testimonial_text: string
+          updated_at?: string
+          user_age?: number | null
+          user_avatar_url?: string | null
+          user_name: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          display_order?: number
+          id?: string
+          is_featured?: boolean
+          testimonial_text?: string
+          updated_at?: string
+          user_age?: number | null
+          user_avatar_url?: string | null
+          user_name?: string
+        }
+        Relationships: []
+      }
+      user_onboarding_data: {
+        Row: {
+          age: number | null
+          birth_city: string | null
+          birth_coordinates: Json | null
+          birth_country: string | null
+          birth_date: string | null
+          birth_time: string | null
+          body_shapes: string[] | null
+          care_improvement_goals: string[] | null
+          completed_at: string | null
+          content_preferences: string[] | null
+          created_at: string
+          current_care_routines: string[] | null
+          current_city: string | null
+          current_country: string | null
+          eye_color: string | null
+          favorite_color: string | null
+          full_name: string | null
+          hair_color: string | null
+          hair_length: string | null
+          hair_type: string | null
+          height: number | null
+          hobbies: string[] | null
+          id: string
+          life_area_to_improve: string | null
+          main_app_goal: string | null
+          most_explored_life_area: string | null
+          nail_preference: string | null
+          notification_frequency: string | null
+          personal_interests: string | null
+          preferred_name: string | null
+          profession: string | null
+          self_love_notes: string | null
+          skin_tone: string | null
+          skin_types: string[] | null
+          social_name: string | null
+          updated_at: string
+          user_id: string
+          weight: number | null
+          work_routine_type: string | null
+        }
+        Insert: {
+          age?: number | null
+          birth_city?: string | null
+          birth_coordinates?: Json | null
+          birth_country?: string | null
+          birth_date?: string | null
+          birth_time?: string | null
+          body_shapes?: string[] | null
+          care_improvement_goals?: string[] | null
+          completed_at?: string | null
+          content_preferences?: string[] | null
+          created_at?: string
+          current_care_routines?: string[] | null
+          current_city?: string | null
+          current_country?: string | null
+          eye_color?: string | null
+          favorite_color?: string | null
+          full_name?: string | null
+          hair_color?: string | null
+          hair_length?: string | null
+          hair_type?: string | null
+          height?: number | null
+          hobbies?: string[] | null
+          id?: string
+          life_area_to_improve?: string | null
+          main_app_goal?: string | null
+          most_explored_life_area?: string | null
+          nail_preference?: string | null
+          notification_frequency?: string | null
+          personal_interests?: string | null
+          preferred_name?: string | null
+          profession?: string | null
+          self_love_notes?: string | null
+          skin_tone?: string | null
+          skin_types?: string[] | null
+          social_name?: string | null
+          updated_at?: string
+          user_id: string
+          weight?: number | null
+          work_routine_type?: string | null
+        }
+        Update: {
+          age?: number | null
+          birth_city?: string | null
+          birth_coordinates?: Json | null
+          birth_country?: string | null
+          birth_date?: string | null
+          birth_time?: string | null
+          body_shapes?: string[] | null
+          care_improvement_goals?: string[] | null
+          completed_at?: string | null
+          content_preferences?: string[] | null
+          created_at?: string
+          current_care_routines?: string[] | null
+          current_city?: string | null
+          current_country?: string | null
+          eye_color?: string | null
+          favorite_color?: string | null
+          full_name?: string | null
+          hair_color?: string | null
+          hair_length?: string | null
+          hair_type?: string | null
+          height?: number | null
+          hobbies?: string[] | null
+          id?: string
+          life_area_to_improve?: string | null
+          main_app_goal?: string | null
+          most_explored_life_area?: string | null
+          nail_preference?: string | null
+          notification_frequency?: string | null
+          personal_interests?: string | null
+          preferred_name?: string | null
+          profession?: string | null
+          self_love_notes?: string | null
+          skin_tone?: string | null
+          skin_types?: string[] | null
+          social_name?: string | null
+          updated_at?: string
+          user_id?: string
+          weight?: number | null
+          work_routine_type?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_suggestions: {
+        Row: {
+          admin_notes: string | null
+          category: string | null
+          created_at: string
+          email: string
+          id: string
+          is_reviewed: boolean | null
+          status: string | null
+          suggestion: string
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          category?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          is_reviewed?: boolean | null
+          status?: string | null
+          suggestion: string
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          category?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          is_reviewed?: boolean | null
+          status?: string | null
+          suggestion?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      wellness_plan_templates: {
+        Row: {
+          base_recommendations: Json
+          created_at: string
+          created_by: string | null
+          description: string
+          display_order: number
+          id: string
+          is_active: boolean
+          name: string
+          template_type: string
+          updated_at: string
+        }
+        Insert: {
+          base_recommendations?: Json
+          created_at?: string
+          created_by?: string | null
+          description: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          name: string
+          template_type: string
+          updated_at?: string
+        }
+        Update: {
+          base_recommendations?: Json
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          name?: string
+          template_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      wellness_plans: {
+        Row: {
+          ai_recommendations: string
+          archived_at: string | null
+          completed_at: string | null
+          created_at: string
+          id: string
+          is_active: boolean | null
+          plan_content: Json
+          plan_type: string | null
+          status: string | null
+          updated_at: string
+          user_id: string
+          valid_from: string
+          valid_until: string | null
+        }
+        Insert: {
+          ai_recommendations: string
+          archived_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          plan_content: Json
+          plan_type?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id: string
+          valid_from?: string
+          valid_until?: string | null
+        }
+        Update: {
+          ai_recommendations?: string
+          archived_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          plan_content?: Json
+          plan_type?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string
+          valid_from?: string
+          valid_until?: string | null
+        }
+        Relationships: []
+      }
+      work_tracking: {
+        Row: {
+          created_at: string
+          daily_message: string | null
+          hours_worked: number
+          id: string
+          mood_impact_level: string
+          notes: string | null
+          routine_type: string
+          shift_type: string | null
+          updated_at: string
+          user_id: string
+          work_date: string
+          workload_level: string
+        }
+        Insert: {
+          created_at?: string
+          daily_message?: string | null
+          hours_worked: number
+          id?: string
+          mood_impact_level: string
+          notes?: string | null
+          routine_type: string
+          shift_type?: string | null
+          updated_at?: string
+          user_id: string
+          work_date: string
+          workload_level: string
+        }
+        Update: {
+          created_at?: string
+          daily_message?: string | null
+          hours_worked?: number
+          id?: string
+          mood_impact_level?: string
+          notes?: string | null
+          routine_type?: string
+          shift_type?: string | null
+          updated_at?: string
+          user_id?: string
+          work_date?: string
+          workload_level?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_users_with_profiles: {
+        Args: never
+        Returns: {
+          created_at: string
+          email: string
+          full_name: string
+          phone: string
+          roles: Json
+          subscription_plan: string
+          user_id: string
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      make_user_admin: { Args: { _email: string }; Returns: undefined }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +1334,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
